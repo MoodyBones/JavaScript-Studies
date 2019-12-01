@@ -54,9 +54,6 @@ a++
 // 3001
 // a++ adds 1
 
-
-
-
 //////////////////
 // 2. What is the value of v after the following?
 ///////////////
@@ -83,9 +80,93 @@ var v = v || 10
 /////
 // it always returns the greater number, or the truthy value.
 
-// 3. Write a script that prints out the multiplication table. Hint: use a loop nested inside another loop.
-
-// Continue on from page 54
-// review loops
-// do exercise 3
+////
+//////
+// Continue on from page 54 [TICK]
+// review loops [TICK]
+// do exercise 3 [TICK]
 // and try exercises from Elequent JavaScript Book
+////////
+
+/////////////////
+// 3. Write a script that prints out the multiplication table. Hint: use a loop nested inside another loop.
+///////////////////
+
+// SOLUTION:
+let num = 1
+const numberArray = []
+const resultsArray = []
+let loopArray = []
+
+for (let i = 1; i <= 12; i++) {
+  numberArray.push(num)
+  num++
+  if (i === 12) {
+    resultsArray.push(numberArray)
+    for (let i = 1; i <= 12; i++) {
+      loopArray = resultsArray[[0]].map(a => a * i)
+      resultsArray.push(loopArray)
+    }
+  }
+}
+console.log(resultsArray)
+
+// WORKINGS:
+// end of line
+//  \n
+
+// space or tab
+// ' ' or \t
+
+// look like this
+// X 0 1 2 3 4 5 6 7 8 9 10 11 12
+// 0
+// 1
+// 2
+// 3
+// 4
+// 5
+// 6
+// 7
+// 8
+// 9
+// 10
+// 11
+// 12
+
+// const number = 0
+// const saveNumber = 0
+// const numberArray = [[X]]
+// const end = '\n'
+// const tab = '\t'
+// for (let i = 0; i <= 12; i++) {
+//  if (num === 0) {
+//   numberArray.push(num)
+//   num++;
+//  } else if (num <=12) {
+//      numberArray[[]].push(num)
+//      num++;
+//  }
+
+//  console.log(numberArray)
+//  console.log(num)
+// }
+
+// let num = 1
+// let numberArray = []
+// let savedArrays = []
+// let newArray = []
+
+// // make an array of number 1-12
+// for (let i = 0; i < 12; i++) {
+//   numberArray.push(num)
+//   num++;
+//   if (i === 11) {
+//     savedArrays.push(numberArray)
+//     for (let i = 1; i <= 12; i++) {
+//       newArray = savedArrays[[0]].map(a => a * i)
+//       savedArrays.push(newArray)
+//     }
+//   }
+//  }
+//  console.log(savedArrays)
