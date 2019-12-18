@@ -175,3 +175,30 @@ use
     console.log(myConcat([1, 2], [3,4,5]))
 ```    
 
+
+## Higher Order Arrow Functions
+
+- They take functions as arguments,
+- for processing collections of data.
+    - map
+    - filter
+    - reduce
+- this is a great time to use arrow functions
+```
+    // We want to compute the square of only positive integers
+    
+    const realNumberArray = [4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2];
+    
+    const squareList = (arr) => {
+      const squaredIntegers = arr.filter(num => Number.isInteger(num) && num > 0).map(x => x * x);
+    	// the result of filter() will be an array with integers above 0
+    	// now we want to the square of all the numbers in that filtered array
+    	// use map() 
+    	// map takes a function as an argument
+      return squaredIntegers;
+    };
+    
+    
+    const squaredIntegers = squareList(realNumberArray);
+    console.log(squaredIntegers);
+```
