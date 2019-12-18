@@ -21,6 +21,7 @@ s++
 !!'false'
 // false
 // came out true, why is that? hmmmm why explain?
+// okkk wait, it's a string!!! thats what makes it true :)
 
 !!undefined
 // false
@@ -170,3 +171,14 @@ console.log(resultsArray)
 //   }
 //  }
 //  console.log(savedArrays)
+
+
+
+
+
+
+// ////// CHAPTER 3
+// ////// FUNCTIONS
+
+
+
