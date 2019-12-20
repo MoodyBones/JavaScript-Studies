@@ -1,13 +1,23 @@
-# Object-Oriented-JavaScript by Stoyan Stefanov
+# J A V A S C R I P T
+# Study Notes & Exercises by [Mel Jones](https://twitter.com/_moodybones)
 
-# Study Notes & Exercise by [Mel Jones](https://twitter.com/_moodybones)
 
-Current Page
-- Continue on from page 54
+## Books
+### Object-Oriented JavaScript by Stoyan Stefanov
+Current Page 81
 
-Review
+### Eloquent JavaScript by Marijn Haverbeke
+Current Page 56
+
+
+
+## Review
 - loops
+- scope
 
-Exercises
-- Chapter 2, exercise 3
-- and checkout loop exercises in Elequent JavaScript Book
+
+## Exercises
+- OOJ 
+  - Chapter 2, exercise 3 - completed
+- EJ 
+  - loop exercises in Elequent JavaScript Book
