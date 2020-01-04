@@ -172,13 +172,52 @@ console.log(resultsArray)
 //  }
 //  console.log(savedArrays)
 
-
-
-
-
-
 // ////// CHAPTER 3
 // ////// FUNCTIONS
 
+// 1. Write a function that converts a hexadecimal color, 
+// for example blue "#0000FF", into its RGB representation "rgb(0, 0, 255)". 
+// Name your function getRGB() and test it with this code:
+
+Function getRGB(hex) {
+  parseInt(hex)
+}
 
 
+//  >>> var a = getRGB("#00FF00");
+//  >>> a;
+// "rgb(0, 255, 0)"
+
+// 2. What does each of these lines print in the console?
+//  >>> parseInt(1e1)
+//  >>> parseInt('1e1')
+//  >>> parseFloat('1e1')
+//  >>> isFinite(0/10)
+//  >>> isFinite(20/0)
+//  >>> isNaN(parseInt(NaN));
+
+// 3. What does this following code alert()?
+var a = 1
+function f() {
+  var a = 2
+  function n() {
+    alert(a)
+  }
+  n()
+}
+f()
+
+// 4. All these examples alert "Boo!". Can you explain why?
+// 4.1.
+var f = alert
+eval('f("Boo!")')
+
+// 4.2.
+var e
+var f = alert
+eval('e=f')('Boo!')
+
+// 4.3.
+;(function() {
+  return alert
+})()('Boo!')
