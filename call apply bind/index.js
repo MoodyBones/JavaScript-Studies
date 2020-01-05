@@ -2,6 +2,8 @@
 // Function.prototype.apply()
 // Function.prototype.call()
 // Function.prototype.bind()
+// The arguments object
+// Array.prototype.slice()
 
 
 //////////
@@ -93,3 +95,19 @@ console.log(retrieveFullName())
 var boundGetFullName = retrieveFullName.bind(person)
 console.log(boundGetFullName()) 
 // returns Mel Jones
+
+
+
+//////
+// arguments
+// concat several strings
+
+function myConcat(seperator) {
+    var args = Array.prototype.slice.call(arguments, 1)
+    // slice() array method, returns a shallow copy of a portion of an array into a new array object    
+    return args.join(seperator)
+}
+
+myConcat('!', 'Mel', 'loves', 'Arne')
+// returns "Mel!loves!Arne"
+
