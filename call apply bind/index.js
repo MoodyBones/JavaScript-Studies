@@ -111,3 +111,23 @@ function myConcat(seperator) {
 myConcat('!', 'Mel', 'loves', 'Arne')
 // returns "Mel!loves!Arne"
 
+
+///////
+// slice()
+// Array method
+
+// to convert Array-like objects to a new Array
+function list() {
+	return Array.prototype.slice.call(arguments)
+}
+
+let list1 = list(1, 2, 3)
+
+// simplified with bind()
+let unboundSlice = [].slice
+let slice = Function.prototype.call.bind(unboundSlice)
+
+function listSimplified() {
+    return slice(arguments)
+}
+let list2 = listSimplified(1, 2, 3)
