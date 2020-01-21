@@ -43,7 +43,7 @@ function divisionFunction(number) {
   return number
 }
 
-function doDivision(array) {
+function getNumbers(array) {
   array.forEach(number => divisionFunction(number))
   return
 }
@@ -54,7 +54,14 @@ function FizzBuzzFunction() {
   for (let i = 0; i < 99; i++) {
     hundredArray.push(Number(hundredArray.slice(-1)) + hundredArray[0])
   }
-  doDivision(hundredArray)
+  getNumbers(hundredArray)
 
   console.log(hundredArray)
 }
+
+// Ideas..
+// I think I need to save the index together with the number,
+// so i can update the array to fizz/buzz
+
+// change loop function, so that it checks the numbers as it goes
+// if it's fizz or buzz or fizzbuzz check slice(-2) + 2
