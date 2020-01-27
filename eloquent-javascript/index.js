@@ -1,6 +1,7 @@
 // //////
 // 2. Program Structure
 
+// ///
 // Looping a Triangle
 
 const loopTo7Function = () => {
@@ -16,12 +17,15 @@ const loopTo7Function = () => {
 }
 loopTo7Function()
 
+// ////
 // FizzBuzz
 
 // print numbers from 1 to 100
 // any number divisible by 3 print Fizz
 // any number divisible by 5 print Buzz
 // any number divisible by both 3 & 5 print FizzBuzz
+
+// //// Workings...
 
 // lets write the math functions
 
@@ -43,11 +47,13 @@ function divisionFunction(number) {
   return number
 }
 
+// this loops through the array pushes each element out
 function getNumbers(array) {
   array.forEach(number => divisionFunction(number))
   return
 }
 
+// the loop
 function FizzBuzzFunction() {
   let hundredArray = [1]
 
@@ -66,20 +72,19 @@ function FizzBuzzFunction() {
 // change loop function, so that it checks the numbers as it goes
 // if it's fizz or buzz or fizzbuzz check slice(-2) + 2
 
-//  next try
-// it stops at 1 now
+// ////////////
+// FIZZBUZZ SOLUTION
 
-function FizzBuzzFunction() {
-  let hundredArray = []
-  let check3
-  let check5
+// no need for index or slice or seperating the function into 3
+// the for loop checks for fizzbuzz/fizz/buzz at each iteration :)
+// before saving it into the array and moving on to the next
 
-  for (let i = 3; hundredArray.length <= 100; i++) {
-    check3 = i / 3
-    check5 = i / 5
+function FizzBuzz() {
+  let arr = []
 
-    // console.log(check3)
-    // console.log(check5)
+  for (let i = 1; arr.length < 100; i++) {
+    let check3 = i / 3
+    let check5 = i / 5
 
     if (
       check3 === parseInt(check3, 10) &&
@@ -87,20 +92,16 @@ function FizzBuzzFunction() {
       check5 === parseInt(check5, 10) &&
       check5 >= 1
     ) {
-      console.log('FizzBuzz')
-      return hundredArray.push('FizzBuzz')
+      arr.push('FizzBuzz')
     } else if (check3 === parseInt(check3, 10)) {
-      console.log('Fizz')
-      return hundredArray.push('Fizz')
+      arr.push('Fizz')
     } else if (check5 === parseInt(check5, 10)) {
-      console.log('Buzz')
-
-      return hundredArray.push('Buzz')
+      arr.push('Buzz')
     } else {
-      return hundredArray.push(i)
+      arr.push(i)
     }
   }
-  console.log(hundredArray)
+  return arr.forEach(e => console.log(e))
 }
 
-FizzBuzzFunction()
+FizzBuzz()
