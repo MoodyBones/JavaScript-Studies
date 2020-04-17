@@ -1,10 +1,12 @@
-let a = 10
+```
+    let a = 10
     let b = a
     a = 0
-    
+
     // returns
     // a = 0
     // b = 10
+``
 
 ## What's a Mental Model?
 
@@ -127,7 +129,7 @@ All primitive values have something in common. **There's nothing I can do in my 
 
 ### Objects and Functions
 
-are also values, but they are not primitive. This makes them very special. 
+are also values, but they are not primitive. This makes them very special.
 
     console.log({});
     console.log([]);
@@ -149,9 +151,9 @@ firefox console mmm prettty
 
 Questions in JavaScript are called *expressions*
 
-    // If we “ask” the expression 2 + 2, 
+    // If we “ask” the expression 2 + 2,
     // JavaScript will “answer” with the value 4.
-    
+
     console.log(2 + 2); // 4
 
 **Expressions are questions that JavaScript can answer. JavaScript answers expressions in the only way it knows how — with values.**
@@ -176,7 +178,7 @@ If we want to check a value’s type, we can ask it with the typeof operator. Ja
 
 Here `typeof(2)` is an expression - and it results in the "number" value.
 
-Strictly saying, using parens isn’t required with typeof. For example, typeof 2 would work just as fine as typeof(2). 
+Strictly saying, using parens isn’t required with typeof. For example, typeof 2 would work just as fine as typeof(2).
 
 However, sometimes parens are required to avoid an ambiguity. One of the cases below would break if we omitted the parens after typeof. Try to guess which one it is:
 
@@ -213,9 +215,9 @@ In JavaScript, there are no other fundamental value types other than the ones we
     console.log(typeof(new Date())); // "object"
     console.log(typeof(/(hello|goodbye)/)); // "object"
 
-“I see,” you might reply, “this is because everything is an object!” Alas, this is a popular urban legend, but *it’s not true*. 
+“I see,” you might reply, “this is because everything is an object!” Alas, this is a popular urban legend, but *it’s not true*.
 
-Although code like "hi".toUpperCase() makes "hi" seem like an object, this is nothing but an illusion. 
+Although code like "hi".toUpperCase() makes "hi" seem like an object, this is nothing but an illusion.
 
 JavaScript creates a wrapper object when you do this, and then immediately discards it.
 
@@ -228,3 +230,4 @@ It’s fine if this mechanism doesn’t quite click yet. **For now, you only nee
 3. **Some values are lonely.** For example, `null` is the only value of the Null type, and `undefined` is the only value of the Undefined type. As we will learn later, these two lonely values are quite the troublemakers!
 4. **We can ask questions with expressions.** JavaScript will answer to us with values. For example, the `2 + 2` expression is answered with `4`.
 5. **We can inspect the type of something by wrapping it in a `typeof` expression.** For example, `typeof(4)` is the string value `"number"`.
+```
