@@ -4,12 +4,10 @@
 // time taken: 15mins??
 
 function getCount(str) {
-  var vowelsCount = 0
-
   if (str.match(/[aeiou]/gi) === null) {
-    return vowelsCount
+    return 0
   }
-  return (vowelsCount = str.match(/[aeiou]/gi).length)
+  return str.match(/[aeiou]/gi).length
 }
 
 console.log(getCount(`hey i'm mel`))
@@ -23,10 +21,7 @@ console.log(getCount(`my pyx`))
 // time taken: 6mins
 
 function makeNegative(num) {
-  if (num <= 0) {
-    return num
-  }
-  return num - num * 2
+  return num <= 0 ? num : -num
 }
 
 console.log(makeNegative(1)) // return -1
@@ -34,9 +29,12 @@ console.log(makeNegative(-5)) // return -5
 console.log(makeNegative(0)) // return 0
 console.log(makeNegative(0.12)) // return -0.12
 
-// alternative answers found on codewars
+// alternative answers
 // function makeNegativeV2(num) {
-//   return num <= 0 ? num : -num
+//   if (num <= 0) {
+//     return num
+//   }
+//   return num - num * 2
 // }
 
 // function makeNegativeV3(num) {
@@ -55,15 +53,26 @@ console.log(makeNegative(0.12)) // return -0.12
 // Get the Midd
 // time taken: 45mins
 
-function getMiddle(s) {
-  const length = s.length
-  const middle = Math.floor(length / 2) // round down to whole number
-  // console.log(middle)
-  let even = length % 2 === 0
-  // console.log(even)
+// function getMiddle(s) {
+//   const length = s.length
+//   const middle = Math.floor(length / 2) // round down to whole number
+//   // console.log(middle)
+//   let even = length % 2 === 0
+//   // console.log(even)
 
-  if (even) {
-    return s.slice(middle - 1, middle + 1) // slice 0 index based & end index is not included (hence middle+1)
+//   if (even) {
+//     return s.slice(middle - 1, middle + 1) // slice 0 index based & end index is not included (hence middle+1)
+//   }
+//   return s.charAt(middle)
+// }
+
+// refactor
+function getMiddle(s) {
+  const { length: stringLength } = s
+  const middle = Math.floor(stringLength / 2)
+
+  if (stringLength % 2 === 0) {
+    return s.slice(middle - 1, middle + 1)
   }
   return s.charAt(middle)
 }
