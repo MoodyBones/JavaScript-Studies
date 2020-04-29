@@ -51,16 +51,16 @@ factorialize(5)
 // Find the length of the longest Word in a String
 
 // my answer
-function findLongestWordLength(str) {
-  let wordsArr = str.split(' ')
-  let lengthArr = []
+// function findLongestWordLength(str) {
+//   let wordsArr = str.split(' ')
+//   let lengthArr = []
 
-  wordsArr.forEach((e) => lengthArr.push(e.length))
+//   wordsArr.forEach((e) => lengthArr.push(e.length))
 
-  return Math.max.apply(null, lengthArr)
-}
+//   return Math.max.apply(null, lengthArr)
+// }
 
-findLongestWordLength('The quick brown fox jumped over the lazy dog')
+// findLongestWordLength('The quick brown fox jumped over the lazy dog')
 
 // refactor using reduce
 function findLongestWordLengthV2(str) {
@@ -74,23 +74,23 @@ console.log(
 )
 
 // or with map
-function findLongestWordLength(str) {
-  return Math.max(...str.split(' ').map((word) => word.length))
-}
+// function findLongestWordLength(str) {
+//   return Math.max(...str.split(' ').map((word) => word.length))
+// }
 
-// or with for loop
-function findLongestWordLength(str) {
-  var words = str.split(' ')
-  var maxLength = 0
+// // or with for loop
+// function findLongestWordLength(str) {
+//   var words = str.split(' ')
+//   var maxLength = 0
 
-  for (var i = 0; i < words.length; i++) {
-    if (words[i].length > maxLength) {
-      maxLength = words[i].length
-    }
-  }
+//   for (var i = 0; i < words.length; i++) {
+//     if (words[i].length > maxLength) {
+//       maxLength = words[i].length
+//     }
+//   }
 
-  return maxLength
-}
+//   return maxLength
+// }
 
 ///////////////////////////////
 // 5
@@ -169,6 +169,65 @@ console.log(repeatStringNumTimes('abc', 3))
 
 //////////////////////////////////////////
 // 8
-//
-// time taken:
-// refactor time:
+// Truncate a string
+// time taken: 36 mins
+// refactor: 1 min
+
+// function truncateString(str, num) {
+//   const ending = '...'
+//   const firstArg = str.slice(0, num)
+
+//   return str.length > num ?  firstArg.padEnd(firstArg.length+3, ending) : str
+// }
+
+// console.log(truncateString('A-tisket a-tasket A green and yellow basket', 8))
+
+// refactor
+
+function truncateString(str, num) {
+  return str.length > num ? str.slice(0, num) + '...' : str
+}
+
+//////////////////////////////////////////
+// 9
+// Finders Keepers
+// time taken: 36 mins
+// refactor:
+// Create a function that looks through an array (first argument) and returns the first element in the array that passes a truth test (second argument). If no element passes the test, return undefined.
+
+function findElement(arr, func) {
+  return arr.find(func)
+}
+
+// The find() method returns the value of the first element in the provided array that satisfies the provided testing function.
+
+console.log(findElement([1, 2, 3, 4], (num) => num % 2 === 0))
+
+//////////////////////////////////////////
+// 10
+// booWho
+// time taken: 15 mins
+// refactor:1 min
+
+//  my answer
+// function booWho(bool) {
+//   if (bool === true || bool === false) {
+//     return true
+//   }
+//   return bool === typeof true
+// }
+
+//  my answer refactor
+// function booWho(bool) {
+//   return bool === true || bool === false ? true : bool === typeof true
+// }
+
+// alt solution from FCC
+function booWho(bool) {
+  return typeof bool === 'boolean'
+}
+
+console.log(booWho(true)) // true
+console.log(booWho(false)) // true
+console.log(booWho([1, 2, 3])) // false
+console.log(booWho([].slice)) // false
