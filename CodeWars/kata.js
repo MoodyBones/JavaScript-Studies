@@ -93,15 +93,12 @@ function findMissingLetter(array) {
   let result = ''
   let alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
-  result = alphabet.split('')
+  // function doesArrayElementMatch(array) {
+  //   for (let i = 0; i < array.length; i++) {
+  //     console.log(array[i])
+  //   }
 
   return result
-}
-
-function doesArrayElementMatch(array) {
-  for (let i = 0; i < array.length; i++) {
-    console.log(array[i])
-  }
 }
 
 const test1 = ['a', 'b', 'c', 'd', 'f']
@@ -131,3 +128,20 @@ console.log(findMissingLetter(test2)) // p
 //   })
 // })
 // console.log(missingLetter)
+
+//////////////////////////////////////////
+// Kata challenge 4
+// Reverse every other word in the string
+// time taken: 4mins
+
+function reverseEveryOtherWord(str) {
+  return str
+    .split(' ')
+    .map((word, index) =>
+      index % 2 === 1 ? word.split('').reverse().join('') : word
+    )
+    .join(' ')
+}
+
+console.log(reverseEveryOtherWord('Reverse this string, please!'))
+console.log(reverseEveryOtherWord('I really don’t like reversing strings!'))
