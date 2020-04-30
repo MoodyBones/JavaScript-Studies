@@ -24,7 +24,12 @@ waffle(30)
 /////////////
 // is a function on the array
 // that accepts another function as it's argument,
-// which it will use to return a new filtered version of the array
+// (callback function)
+// filter will loop through each item in the array,
+// and for each item, it's going to pass it into the callback function,
+// and when it does it will expect the callback function to return a true or false,
+// to tell filter whether or not this item should be in the array
+// and when it's done it will return the new filtered array
 
 const animals = [
   { name: 'Fluffykins', species: 'rabbit' },
@@ -73,12 +78,28 @@ const otherAnimals = animals.reject(isDog)
 
 ///////////////////
 // .map()
+// returns a new transformed array
 
 // old for loop way
 
-const names = []
-for (let i = 0; i < animals.length; i++) {
-  names.push(animals[i].name)
-}
+// const names = []
+// for (let i = 0; i < animals.length; i++) {
+//   names.push(animals[i].name)
+// }
+
+// console.log(names)
+
+const names = animals.map(function (animal) {
+  return animal.name
+})
+
+// with arrow functions
+const names = animals.map((animal) => animal.name)
 
 console.log(names)
+
+//  it can be used to create new objects
+
+const names = animals.map(function (animal) {
+  return animal.name + 'is a' + animal.species
+})
