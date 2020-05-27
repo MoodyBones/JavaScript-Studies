@@ -231,3 +231,69 @@ console.log(booWho(true)) // true
 console.log(booWho(false)) // true
 console.log(booWho([1, 2, 3])) // false
 console.log(booWho([].slice)) // false
+
+//////////////////////////////////////////
+// 11
+// Recursion - countUp & countDown
+// time taken:
+// refactor:
+
+// what is RECURSION??
+// when a function calls it's self until it doesn't
+
+function countUp(n) {
+  if (n < 1) {
+    return []
+  } else {
+    const countArray = countUp(n - 1)
+    console.log(n)
+    console.log(countArray)
+    countArray.push(n)
+    return countArray
+  }
+}
+
+console.log(countUp(5))
+
+function countDown(n) {
+  if (n < 1) {
+    return []
+  } else {
+    const countArray = countDown(n - 1)
+    countArray.unshift(n)
+    return countArray
+  }
+}
+console.log(countDown(5))
+
+//////////////////////////////////////////
+// 12
+// Recursion - to create a range of Numbers
+// time taken:
+// refactor:
+
+// it must return an array of integers
+// first integer in array is startNum
+// count up by one
+// last integery in array is endNum
+// the startNum will always be less than or equal to endNum
+
+// function must use recursion
+// no loops of any kind
+// it should also work for cases where startNum === endNum
+
+function rangeOfNumbers(startNum, endNum) {
+  let result = []
+  if (startNum === endNum) return [startNum]
+  else {
+    result = rangeOfNumbers(startNum, endNum - 1)
+    // console.log(endNum)
+    result.push(endNum)
+    return result
+  }
+}
+
+// console.log(rangeOfNumbers(1, 5))
+console.log(rangeOfNumbers(6, 9))
+
+// it works! but I don't understand :/
