@@ -16,4 +16,8 @@ function addTwoDigits(num) {
     .reduce((total, current) => parseInt(total) + parseInt(current))
 }
 
-console.log(addTwoDigits(23))
+const test = 23
+const test2 = 2356
+
+console.log(addTwoDigits(test))
+console.log(addTwoDigits(test2))
