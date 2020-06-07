@@ -54,21 +54,21 @@
 //
 // time taken: too long
 
-// function deleteNth(array, occurence) {
-//   const ocurrenceObject = {}
+function deleteNth(array, occurence) {
+  const ocurrenceObject = {}
 
-//   return array.reduce(function (accumulator, currentValue) {
-//     if (!ocurrenceObject[currentValue]) {
-//       ocurrenceObject[currentValue] = 0
-//     }
-//     if (ocurrenceObject[currentValue] < occurence) {
-//       accumulator.push(currentValue)
-//       ocurrenceObject[currentValue] += 1
-//     }
+  return array.reduce(function (accumulator, currentValue) {
+    if (!ocurrenceObject[currentValue]) {
+      ocurrenceObject[currentValue] = 0
+    }
+    if (ocurrenceObject[currentValue] < occurence) {
+      accumulator.push(currentValue)
+      ocurrenceObject[currentValue] += 1
+    }
 
-//     return accumulator
-//   }, [])
-// }
+    return accumulator
+  }, [])
+}
 // console.log(deleteNth([1, 1, 1, 1], 2))
 // console.log(deleteNth([20, 37, 20, 21, 37], 1))
 
@@ -77,9 +77,9 @@
 // Is it a triangle
 // time taken: 4mins
 
-// function isTriangle(a, b, c) {
-//   return a + b > c && a + c > b && b + c > a
-// }
+function isTriangle(a, b, c) {
+  return a + b > c && a + c > b && b + c > a
+}
 
 //////////////////////////////////////////
 // Kata challenge 4
@@ -90,15 +90,21 @@
 // that returns the missing letters
 
 function findMissingLetter(array) {
-  let result = ''
-  let alphabet = 'abcdefghijklmnopqrstuvwxyz'
+  let result
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('')
 
-  // function doesArrayElementMatch(array) {
-  //   for (let i = 0; i < array.length; i++) {
-  //     console.log(array[i])
-  //   }
+  return array
+    .map((e) => alphabet.indexOf(e.toLowerCase()))
+    .reduce((acc, current) => {
+      if (current === acc + 2) {
+        return (result = alphabet[current - 1])
+      }
 
-  return result
+      if (current === acc + 1) {
+        return (acc = current)
+      }
+      return result
+    })
 }
 
 const test1 = ['a', 'b', 'c', 'd', 'f']
