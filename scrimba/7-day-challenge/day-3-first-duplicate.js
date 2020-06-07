@@ -21,6 +21,26 @@ const test2 = [2, 1, 3, 5, 4, 6]
 console.log(firstDuplicate(test1))
 console.log(firstDuplicate(test2))
 
+// addtional solution using an object instead of an array
+// & has own property
+
+function firstDuplicate(nums) {
+  const firstDup = {}
+  // iterate nums
+  for (let num of nums) {
+    // check for a duplicated value
+    if (firstDup.hasOwnProperty(num)) {
+      // return duplicated nums
+      return num
+    }
+
+    firstDup[num] = null
+  }
+
+  // dont find a duplicate return -1
+  return -1
+}
+
 // ////
 // Notes / Musings / Pseudo Code
 
