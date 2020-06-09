@@ -199,3 +199,67 @@ const HIGH_TEMPERATURES = {
 };
 
 const { today, tomorrow } = HIGH_TEMPERATURES
+
+
+// ////
+// Use Destructuring Assignment to Assign Variables from Objects
+
+const HIGH_TEMPERATURES = {
+  yesterday: 75,
+  today: 77,
+  tomorrow: 80
+};
+
+const { today: highToday, tomorrow: highTomorrow} = HIGH_TEMPERATURES
+
+
+// ////
+// Use Destructuring Assignment to Assign Variables from Nested Objects
+
+const LOCAL_FORECAST = {
+  yesterday: { low: 61, high: 75 },
+  today: { low: 64, high: 77 },
+  tomorrow: { low: 68, high: 80 }
+};
+
+const { today: { low: lowToday, high: highToday}} = LOCAL_FORECAST
+
+
+// ////
+// Use Destructuring Assignment to Assign Variables from Arrays
+
+// One key difference between the spread operator and array destructuring 
+// is that the spread operator unpacks all contents of an array into a comma-separated list. 
+// Consequently, you cannot pick or choose which elements you want to assign to variables.
+
+let a = 8, b = 6;
+[b, a] = [a, b]
+
+
+// ////
+// Use Destructuring Assignment with the Rest Parameter to Reassign Array Elements
+
+// In some situations involving array destructuring, 
+// we might want to collect the rest of the elements into a separate array.
+
+// The result is similar to Array.prototype.slice(), as shown below:
+
+const [a, b, ...arr] = [1, 2, 3, 4, 5, 7];
+console.log(a, b); // 1, 2
+console.log(arr); // [3, 4, 5, 7]
+
+
+// Exercise
+// Use destructuring assignment with the rest parameter to perform an effective Array.prototype.slice() 
+// so that arr is a sub-array of the original array source with the first two elements omitted.
+
+const source = [1,2,3,4,5,6,7,8,9,10];
+function removeFirstTwo(list) {
+  const [,, ...arr] = list; 
+  return arr;
+}
+const arr = removeFirstTwo(source);
+
+
+
+
