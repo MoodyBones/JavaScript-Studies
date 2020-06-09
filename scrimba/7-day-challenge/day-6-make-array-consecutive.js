@@ -4,7 +4,7 @@
 // time taken: 1 hour
 
 function makeArrayConsecutive(nums) {
-  const sortedNums = nums.sort((a, b) => a - b)
+  const sortedNums = [...nums].sort((a, b) => a - b)
 
   const firstNum = sortedNums[0]
   const lastNum = sortedNums[sortedNums.length - 1]
