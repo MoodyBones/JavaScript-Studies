@@ -356,7 +356,7 @@ const resultDisplayArray = makeList(result.failure);
 // with object literals
 const getMousePosition = (x, y) => ({ x, y });
 
-
+// ////
 // Write Concise Declarative Functions with ES6
 
 // When defining functions within objects in ES5, we have to use the keyword function as follows:
@@ -387,7 +387,7 @@ bicycle.setGear(3);
 console.log(bicycle.gear);
 
 
-
+// ////
 // CLass syntax
 
 // ES6 provides a new syntax to create objects, using the class keyword.
@@ -428,8 +428,278 @@ console.log(carrot.name); // Should display 'carrot'
 
 
 
+// /////
+// Gets & Setters
+
+// Getter functions are meant to simply return (get) the value of an object's private variable to the user without the user directly accessing the private variable.
+
+// Setter functions are meant to modify (set) the value of an object's private variable based on the value passed into the setter function. 
+// This change could involve calculations, or even overwriting the previous value completely.
+
+class Book {
+  constructor(author) {
+    this._author = author;
+  }
+  // getter
+  get writer() {
+    return this._author;
+  }
+  // setter
+  set writer(updatedAuthor) {
+    this._author = updatedAuthor;
+  }
+}
+const lol = new Book('anonymous');
+console.log(lol.writer);  // anonymous
+lol.writer = 'wut';
+console.log(lol.writer);  // wut
+
+// Notice the syntax used to invoke the getter and setter. They do not even look like functions. Getters and setters are important because they hide internal implementation details. Note: It is convention to precede the name of a private variable with an underscore (_). However, the practice itself does not make a variable private.
 
 
+class Thermostat {
+  constructor(tempInF) {
+    this._tempInF = tempInF
+  }
+
+  get temperature() {
+    return 5/9 * (this._tempInF - 32) //when getting temp return the C
+  }
+
+  set temperature(newTemp) {
+    this._tempInF = newTemp * 9.0 / 5 + 32 // when setting covert back to F
+  }
+}
+
+const thermos = new Thermostat(76); // Setting in Fahrenheit scale
+let temp = thermos.temperature; // 24.44 in Celsius
+console.log(thermos.temperature)
+
+thermos.temperature = 26;
+temp = thermos.temperature; // 26 in Celsius
+console.log(temp)
+
+
+
+// ////
+// Create a Module Script
+
+// JavaScript started with a small role to play on an otherwise mostly HTML web. 
+// Today, it’s huge, and some websites are built almost entirely with JavaScript. 
+// In order to make JavaScript more modular, clean, and maintainable; ES6 introduced a way to easily share code among JavaScript files. 
+// This involves exporting parts of a file for use in one or more other files, and importing the parts you need, where you need them. 
+// In order to take advantage of this functionality, you need to create a script in your HTML document with a type of module.
+
+<script type="module" src="filename.js"></script>
+// A script that uses this module type can now use the import and export features you will learn about in the upcoming challenges.
+
+
+
+
+// ////
+// Use export to Share a Code Block
+
+//  if you want to use a function in several different JavaScript files..
+// you must import it!
+
+export const add = (x , y) => {
+  return x + y
+}
+
+// above is a common way, but you can also achieve the same thing like this:
+
+const add = (x , y) => {
+  return x + y
+}
+
+export { add }
+
+// When you export a variable or function, you can import it in another file and use it without having to rewrite the code. 
+// You can export multiple things like:
+
+export { add, subtract }
+
+// exercise
+const uppercaseString = (string) => {
+  return string.toUpperCase();
+}
+
+const lowercaseString = (string) => {
+  return string.toLowerCase()
+}
+
+export { uppercaseString, lowercaseString }
+
+
+
+// ////
+// Import - to reuse JavaScript code
+
+import { add } from './math_functions.js'
+// Here, import will find add in math_functions.js, import just that function for you to use, and ignore the rest. 
+// The relative file path (./) and file extension (.js) are required when using import in this way.
+
+// you can import more than one function at a time, seperate with a comma
+
+import { uppercaseString, lowercaseString } from './string_functions.js'
+
+uppercaseString("hello");
+lowercaseString("WORLD!");
+
+
+
+// ////
+// Use * to Import Everything from a file (named export)
+
+import * as myMathModule from "./math_functions.js";
+
+// The above import statement will create an object called myMathModule. This is just a variable name, you can name it anything. 
+
+// This is just a variable name, you can name it anything. 
+
+myMathModule.add(2,3);
+myMathModule.subtract(5,3);
+
+// exercise
+import * as stringFunctions from './string_functions.js'
+
+stringFunctions.uppercaseString("hello");
+stringFunctions.lowercaseString("WORLD!");
+
+
+
+// Create an Export Fallback with (export default) 
+
+// In the export lesson, you learned about the syntax referred to as a named export. 
+
+// There is another export syntax you need to know, known as export default.
+// Usually you will use this syntax if only one value is being exported from a file. 
+// It is also used to create a fallback value for a file or module.
+
+// named function
+export default function add(x, y) {
+  return x + y;
+}
+
+// anonymous function
+export default function(x, y) {
+  return x + y;
+}
+
+// Since export default is used to declare a fallback value for a module or file, you can only have one value be a default export in each module or file. 
+// Additionally, you cannot use export default with var, let, or const
+
+
+
+// ////
+// Import a Default Export
+
+// To import a default export, you need to use a different import syntax.
+
+import add from "./math_functions.js";
+// add is the default export in math_functions.js
+
+
+
+// ////
+// Create a JavaScript Promise
+
+// A promise in JavaScript is exactly what it sounds like - 
+// you use it to make a promise to do something, usually asynchronously.
+
+// When the task completes, you either fulfill your promise or fail to do so.
+
+// Promise is a constructor function, so you need to use the new keyword to create one. 
+
+//  It takes a function, as its argument, with two parameters - resolve and reject.
+// These are methods used to determine the outcome of the promise.
+
+
+const myPromise = new Promise((resolve, reject) = {
+
+})
+
+
+
+// ////
+// Complete a Promise with resolve and reject
+
+// A promise has three states: pending, fulfilled, and rejected.
+
+// The promise you created in the last challenge is forever stuck in the pending state 
+// because you did not add a way to complete the promise. 
+// Params resolve & reject are used to do this
+
+// Resolve is used when you want your promise to succeed, and 
+// Reject is used when you want it to fail. 
+
+// These are methods that take an argument, as seen below.
+
+
+
+const myPromise = new Promise((resolve, reject) => {
+  if (conditionHere) {
+    resolve("Promise was fulfilled");
+  } else {
+    reject("Promise was rejected")
+  }
+});
+
+// The example above uses strings for the argument of these functions, but it can really be anything. Often, it might be an object, that you would use data from, to put on your website or elsewhere.
+
+
+
+// Promise exercise
+
+const makeServerRequest = new Promise((resolve, reject) => {
+  // responseFromServer represents a response from a server
+  let responseFromServer;
+    
+  if(responseFromServer) {
+    resolve("We got the data")
+  } else {  
+    reject("Data not received")
+  }
+});
+
+
+
+// ////
+// Handle a Fulfilled Promise with then
+
+// Promises are most useful when you have a process that takes an unknown amount of time in your code (i.e. something asynchronous), often a server request.
+
+//  When you make a server request it takes some amount of time, and after it completes you usually want to do something with the response from the server. 
+
+// This can be achieved by using the then method. The then method is executed immediately after your promise is fulfilled with resolve. 
+
+myPromise.then(result => {
+  // do something with the result
+})
+
+// result comes from the argumnet given to the resolve method
+
+
+const makeServerRequest = new Promise((resolve, reject) => {
+  // responseFromServer is set to true to represent a successful response from a server
+  let responseFromServer = true;
+    
+  if(responseFromServer) {
+    resolve("We got the data");
+  } else {  
+    reject("Data not received");
+  }
+});
+
+
+makeServerRequest.then(result => {
+  console.log(result)
+})
+
+
+
+
+// Handle a Rejected Promise with catch 
 
 
 
