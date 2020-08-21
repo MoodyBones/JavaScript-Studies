@@ -356,6 +356,8 @@ const resultDisplayArray = makeList(result.failure);
 // with object literals
 const getMousePosition = (x, y) => ({ x, y });
 
+
+
 // ////
 // Write Concise Declarative Functions with ES6
 
@@ -410,7 +412,8 @@ class SpaceShuttle {
 }
 const zeus = new SpaceShuttle('Jupiter');
 
-// It should be noted that the class keyword declares a new function, to which a constructor is added. This constructor is invoked when new is called to create a new object.
+// It should be noted that the class keyword declares a new function, to which a constructor is added. 
+// This constructor is invoked when new is called to create a new object.
 
 // UpperCamelCase should be used by convention for ES6 class names, as in SpaceShuttle used above.
 // The constructor method is a special method for creating and initializing an object created with a class. You will learn more about it in the Object Oriented Programming section of the JavaScript Algorithms And Data Structures Certification.
@@ -454,7 +457,8 @@ console.log(lol.writer);  // anonymous
 lol.writer = 'wut';
 console.log(lol.writer);  // wut
 
-// Notice the syntax used to invoke the getter and setter. They do not even look like functions. Getters and setters are important because they hide internal implementation details. Note: It is convention to precede the name of a private variable with an underscore (_). However, the practice itself does not make a variable private.
+// Notice the syntax used to invoke the getter and setter. They do not even look like functions. Getters and setters are important because they hide internal implementation details. 
+// Note: It is convention to precede the name of a private variable with an underscore (_). However, the practice itself does not make a variable private.
 
 
 class Thermostat {
@@ -499,8 +503,8 @@ console.log(temp)
 // ////
 // Use export to Share a Code Block
 
-//  if you want to use a function in several different JavaScript files..
-// you must import it!
+// if you want to use a function in several different JavaScript files..
+// you must export it!
 
 export const add = (x , y) => {
   return x + y
@@ -611,7 +615,7 @@ import add from "./math_functions.js";
 
 // Promise is a constructor function, so you need to use the new keyword to create one. 
 
-//  It takes a function, as its argument, with two parameters - resolve and reject.
+// It takes a function, as its argument, with two parameters - resolve and reject.
 // These are methods used to determine the outcome of the promise.
 
 
@@ -700,6 +704,40 @@ makeServerRequest.then(result => {
 
 
 // Handle a Rejected Promise with catch 
+
+// catch is the method used when your promise has been rejected.
+
+// It is executed immediately after a promise's reject method is called. Here’s the syntax:
+
+myPromise.catch(error => {
+  // do something with the error.
+});
+
+// Note: the then and catch methods can be chained to the promise declaration if you choose.
+
+// exercise
+
+const makeAnotherServerRequest = new Promise((resolve, reject) => {
+    // responseFromServer is set to false to represent an unsuccessful response from a server
+  let responseFromServer = false;
+
+    if(responseFromServer) {
+    resolve("We got the data");
+  } else {  
+    reject("Data not received");
+  }
+})
+
+makeAnotherServerRequest.then(result => {
+  console.log(result)
+})
+
+makeAnotherServerRequest.catch(error => {
+  console.log(error)
+})
+
+
+
 
 
 
