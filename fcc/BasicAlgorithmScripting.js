@@ -4,6 +4,8 @@
 //////////////////////////////////
 // 1
 // convert celsius to fahrenheit
+//////////////////////////////////
+
 function convertToF(celsius) {
   return (celsius * 9) / 5 + 32
 }
@@ -13,6 +15,7 @@ console.log(convertToF(30))
 ///////////////////////////////////
 // 2
 // Reverse a string
+///////////////////////////////////
 
 // my answer
 function reverseString(str) {
@@ -24,6 +27,7 @@ reverseString('hello')
 //////////////////////////////
 // 3
 // Factorilise (5 = 1 * 2 * 3 * 4 * 5)
+//////////////////////////////
 
 function factorialize(num) {
   for (var product = 1; num > 0; num--) {
@@ -49,6 +53,7 @@ factorialize(5)
 //////////////////////////////////////
 // 4
 // Find the length of the longest Word in a String
+//////////////////////////////////////
 
 // my answer
 // function findLongestWordLength(str) {
@@ -95,6 +100,7 @@ console.log(
 ///////////////////////////////
 // 5
 // Return Largest Numbers in Arrays
+///////////////////////////////
 
 // answer
 function largestOfFour(arr) {
@@ -129,6 +135,7 @@ function largestOfFour(arr) {
 // 6
 // Confirm the Ending
 // time taken: 36mins
+//////////////////////////////////////////
 
 function confirmEnding(str, target) {
   return str.slice(str.length - target.length) === target
@@ -146,6 +153,7 @@ console.log(confirmEnding('Abstraction', 'action')) // true
 // don't use replace()
 // time taken: 10 mins
 // refactor time: 13 mins
+//////////////////////////////////////////
 
 // original
 // function repeatStringNumTimes(str, num) {
@@ -172,6 +180,7 @@ console.log(repeatStringNumTimes('abc', 3))
 // Truncate a string
 // time taken: 36 mins
 // refactor: 1 min
+//////////////////////////////////////////
 
 // function truncateString(str, num) {
 //   const ending = '...'
@@ -194,6 +203,7 @@ function truncateString(str, num) {
 // time taken: 36 mins
 // refactor:
 // Create a function that looks through an array (first argument) and returns the first element in the array that passes a truth test (second argument). If no element passes the test, return undefined.
+//////////////////////////////////////////
 
 function findElement(arr, func) {
   return arr.find(func)
@@ -208,6 +218,7 @@ console.log(findElement([1, 2, 3, 4], (num) => num % 2 === 0))
 // booWho
 // time taken: 15 mins
 // refactor:1 min
+//////////////////////////////////////////
 
 //  my answer
 // function booWho(bool) {
@@ -237,6 +248,7 @@ console.log(booWho([].slice)) // false
 // Recursion - countUp & countDown
 // time taken:
 // refactor:
+//////////////////////////////////////////
 
 // what is RECURSION??
 // when a function calls it's self until it doesn't
@@ -271,11 +283,12 @@ console.log(countDown(5))
 // Recursion - to create a range of Numbers
 // time taken:
 // refactor:
+//////////////////////////////////////////
 
 // it must return an array of integers
 // first integer in array is startNum
 // count up by one
-// last integery in array is endNum
+// last integer in array is endNum
 // the startNum will always be less than or equal to endNum
 
 // function must use recursion
@@ -287,13 +300,103 @@ function rangeOfNumbers(startNum, endNum) {
   if (startNum === endNum) return [startNum]
   else {
     result = rangeOfNumbers(startNum, endNum - 1)
-    // console.log(endNum)
     result.push(endNum)
     return result
   }
 }
 
-// console.log(rangeOfNumbers(1, 5))
+console.log(rangeOfNumbers(1, 5))
 console.log(rangeOfNumbers(6, 9))
 
 // it works! but I don't understand :/
+
+//////////////////////////////////////////
+// 13
+// TitleCase a Sentence
+// time taken: 14mins 8/10/20
+// refactor:
+//////////////////////////////////////////
+
+// split string by words
+
+function titleCase(str) {
+  return str
+    .split(' ')
+    .map((word) => {
+      return word[0].toUpperCase() + word.slice(1).toLowerCase()
+    })
+    .join(' ')
+}
+
+console.log(titleCase("I'm a little tea pot"))
+console.log(titleCase(titleCase('sHoRt AnD sToUt')))
+console.log(titleCase(titleCase('HERE IS MY HANDLE HERE IS MY SPOUT')))
+
+//////////////////////////////////////////
+// 14
+// Slice and Splice
+// time taken: 17 mins 8/10/20
+// refactor:
+//////////////////////////////////////////
+
+function frankenSplice(arr1, arr2, n) {
+  const result = [...arr2]
+  result.splice(n, 0, ...arr1)
+  return result
+}
+console.log(frankenSplice([1, 2, 3], [4, 5, 6], 1))
+
+//////////////////////////////////////////
+// 15
+// Falsy Bouncer
+// time taken: 25 mins 8/10/20
+// refactor:
+//////////////////////////////////////////
+
+// function bouncer(arr) {
+//   const result = []
+
+//   arr.reduce((newArr, value) => {
+//     let test = new Boolean(value)
+//     // console.log(test)
+//     if (test.valueOf() === true) {
+//       result.push(value)
+//     }
+//   }, [])
+//   return result
+
+// }
+
+function bouncer(arr) {
+  return arr.filter(Boolean)
+}
+
+console.log(bouncer([7, 'ate', '', false, 9]))
+
+//////////////////////////////////////////
+// 16
+// Where do I belong
+// time taken:
+// refactor:
+//////////////////////////////////////////
+
+function getIndexToIns(arr, num) {
+  const result = [...arr.sort((a, b) => a - b)]
+  const resultArray = []
+  console.log(result)
+  result.reduce((acc, curr, i) => {
+    console.log(curr)
+    if (curr >= num) {
+      resultArray.push(i)
+    }
+  }, 0)
+  return resultArray
+}
+
+// console.log(getIndexToIns([40, 70, 60], 50))
+// console.log(getIndexToIns([10, 20, 30, 40, 50], 35))
+console.log(getIndexToIns([3, 10, 5], 3))
+
+// go through array
+// check one at a time
+// if the curr is greater or equal too num return the index of the curr

@@ -19,7 +19,7 @@ const nums2 = [1, 3, 6, 4, 8, 5, 12] // 5
 console.log(makeArrayConsecutive(nums1))
 console.log(makeArrayConsecutive(nums2))
 
-// ////
+///////////////////////////////////////////////
 // Notes / Musings / Pseudo Code
 
 // hints
@@ -32,7 +32,7 @@ console.log(makeArrayConsecutive(nums2))
 // if the current is total plus 1
 //
 
-// ////
+///////////////////////////////////////////////
 // the following returns the wrong result
 // but it was fun to write
 

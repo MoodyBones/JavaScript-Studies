@@ -1,10 +1,10 @@
-// /////////////
+////////////////////////////////////////////////////////
 // ESG
-// ////////////
+///////////////////////////////////////////////////////
 
-// ////
+///////////////////////////////////////////////
 // Differences between var and let
-// ////
+///////////////////////////////////////////////
 // One of the biggest problems with declaring variables with the var keyword is that you can overwrite variable declarations without an error.
 //  A new keyword called let was introduced in ES6 to solve this potential issue with the var keyword. 
 // If you were to replace var with let in the variable declarations of the code above, the result would be an error.
@@ -18,7 +18,7 @@ function catTalk() {
 catTalk()
 
 
-// ////
+///////////////////////////////////////////////
 // Compare Scopes of the var and let Keywords
 
 // var is declared globally
@@ -36,7 +36,7 @@ function checkScope() {
 }
 
 
-// ////
+///////////////////////////////////////////////
 // Declare a Read-Only Variable with the const Keyword
 
 // const has all the awesome features that let has, with the added bonus that variables declared using const are read-only. 
@@ -53,7 +53,7 @@ function printManyTimes(str) {
 printManyTimes('freeCodeCamp')
 
 
-// ////
+///////////////////////////////////////////////
 // Mutate an Array Declared with const
 
 // Objects (incl. arrays and functions) assigned to a varaible usisng const are still mutable
@@ -69,7 +69,7 @@ function editInPlace() {
 editInPlace()
 
 
-// ////
+///////////////////////////////////////////////
 //  Prevent Object Mutation
 
 //  use Object.freeze()
@@ -92,7 +92,7 @@ const PI = freezeObj()
 
 
 
-// ////
+///////////////////////////////////////////////
 // Use Arrow Functions to Write Concise Anonymous Functions
 
 const magic = () => {
@@ -100,7 +100,7 @@ const magic = () => {
 }
 
 
-// ////
+///////////////////////////////////////////////
 // Write Arrow Functions with Parameters
 
 const myConcat = (arr1, arr2) => {
@@ -111,14 +111,14 @@ console.log(myConcat([1, 2], [3, 4, 5]))
 
 
 
-// ////
+///////////////////////////////////////////////
 // Set Default Parameters for Your Functions
 
 const increment = (number, value = 1) => number + value
 
 
 
-// ////
+///////////////////////////////////////////////
 // Use the Rest Parameter with Function Parameters
 
 // In order to help us create more flexible functions, 
@@ -138,7 +138,7 @@ const sum = (...args) => {
 }
 
 
-// ////
+///////////////////////////////////////////////
 // Use the Spread Operator to Evaluate Arrays In-Place
 
 // ES6 introduces the spread operator, 
@@ -175,7 +175,7 @@ arr2 = [...arr1];
 
 
 
-// ////
+///////////////////////////////////////////////
 // Use Destructuring Assignment to Extract Values from Objects
 
 // Destructuring assignment is special syntax introduced in ES6, for neatly assigning values taken directly from an object.
@@ -202,7 +202,7 @@ const HIGH_TEMPERATURES = {
 const { today, tomorrow } = HIGH_TEMPERATURES
 
 
-// ////
+///////////////////////////////////////////////
 // Use Destructuring Assignment to Assign Variables from Objects
 
 const HIGH_TEMPERATURES = {
@@ -214,7 +214,7 @@ const HIGH_TEMPERATURES = {
 const { today: highToday, tomorrow: highTomorrow} = HIGH_TEMPERATURES
 
 
-// ////
+///////////////////////////////////////////////
 // Use Destructuring Assignment to Assign Variables from Nested Objects
 
 const LOCAL_FORECAST = {
@@ -226,7 +226,7 @@ const LOCAL_FORECAST = {
 const { today: { low: lowToday, high: highToday}} = LOCAL_FORECAST
 
 
-// ////
+///////////////////////////////////////////////
 // Use Destructuring Assignment to Assign Variables from Arrays
 
 // One key difference between the spread operator and array destructuring 
@@ -237,7 +237,7 @@ let a = 8, b = 6;
 [b, a] = [a, b]
 
 
-// ////
+///////////////////////////////////////////////
 // Use Destructuring Assignment with the Rest Parameter to Reassign Array Elements
 
 // In some situations involving array destructuring, 
@@ -263,7 +263,7 @@ const arr = removeFirstTwo(source);
 
 
 
-// ////
+///////////////////////////////////////////////
 // Use Destructuring Assignment to Pass an Object as a Function's Parameters
 
 // sometimes you don't want to pass in the whole object - only the need fields
@@ -285,7 +285,7 @@ const half = ({max, min}) => (max + min) / 2.0;
 
 
 
-// ////
+///////////////////////////////////////////////
 // Create strings using Template Literals
 
 // a template literal is a special type of strign that makes creatign complex strings easier
@@ -343,7 +343,7 @@ const resultDisplayArray = makeList(result.failure);
 
 
 
-// ////
+///////////////////////////////////////////////
 // Write Concise Object Literal Declarations - using object property shorthand
 
 //before
@@ -358,7 +358,7 @@ const getMousePosition = (x, y) => ({ x, y });
 
 
 
-// ////
+///////////////////////////////////////////////
 // Write Concise Declarative Functions with ES6
 
 // When defining functions within objects in ES5, we have to use the keyword function as follows:
@@ -389,7 +389,7 @@ bicycle.setGear(3);
 console.log(bicycle.gear);
 
 
-// ////
+///////////////////////////////////////////////
 // CLass syntax
 
 // ES6 provides a new syntax to create objects, using the class keyword.
@@ -431,7 +431,7 @@ console.log(carrot.name); // Should display 'carrot'
 
 
 
-// /////
+////////////////////////////////////////////////
 // Gets & Setters
 
 // Getter functions are meant to simply return (get) the value of an object's private variable to the user without the user directly accessing the private variable.
@@ -485,7 +485,7 @@ console.log(temp)
 
 
 
-// ////
+///////////////////////////////////////////////
 // Create a Module Script
 
 // JavaScript started with a small role to play on an otherwise mostly HTML web. 
@@ -500,7 +500,7 @@ console.log(temp)
 
 
 
-// ////
+///////////////////////////////////////////////
 // Use export to Share a Code Block
 
 // if you want to use a function in several different JavaScript files..
@@ -536,7 +536,7 @@ export { uppercaseString, lowercaseString }
 
 
 
-// ////
+///////////////////////////////////////////////
 // Import - to reuse JavaScript code
 
 import { add } from './math_functions.js'
@@ -552,7 +552,7 @@ lowercaseString("WORLD!");
 
 
 
-// ////
+///////////////////////////////////////////////
 // Use * to Import Everything from a file (named export)
 
 import * as myMathModule from "./math_functions.js";
@@ -595,7 +595,7 @@ export default function(x, y) {
 
 
 
-// ////
+///////////////////////////////////////////////
 // Import a Default Export
 
 // To import a default export, you need to use a different import syntax.
@@ -605,7 +605,7 @@ import add from "./math_functions.js";
 
 
 
-// ////
+///////////////////////////////////////////////
 // Create a JavaScript Promise
 
 // A promise in JavaScript is exactly what it sounds like - 
@@ -625,7 +625,7 @@ const myPromise = new Promise((resolve, reject) = {
 
 
 
-// ////
+///////////////////////////////////////////////
 // Complete a Promise with resolve and reject
 
 // A promise has three states: pending, fulfilled, and rejected.
@@ -668,7 +668,7 @@ const makeServerRequest = new Promise((resolve, reject) => {
 
 
 
-// ////
+///////////////////////////////////////////////
 // Handle a Fulfilled Promise with then
 
 // Promises are most useful when you have a process that takes an unknown amount of time in your code (i.e. something asynchronous), often a server request.

@@ -17,7 +17,7 @@ const sampleDataArray = ['abc', 'ded']
 //   return resultArray
 // }
 
-// ////
+///////////////////////////////////////////////
 // REFACTORED
 // function addBorder(array) {
 //   const starString = '*****'
@@ -26,7 +26,7 @@ const sampleDataArray = ['abc', 'ded']
 
 // console.log(addBorder(sampleDataArray))
 
-// ////
+///////////////////////////////////////////////
 // Answer from Scrimba
 // function addBorder(array) {
 //   const wall = '*'.repeat(array[0].length + 2)
@@ -41,7 +41,7 @@ const sampleDataArray = ['abc', 'ded']
 //   return array
 // }
 
-// ////
+///////////////////////////////////////////////
 // EXTRA CHALLENGE refactor so it works for strings with varying lengths
 // fill in spaces with extra *
 
@@ -70,7 +70,7 @@ console.log(addBorder(sampleDataArray2))
 console.log(addBorder(sampleDataArray3))
 console.log(addBorder(sampleDataArray4))
 
-// ////
+///////////////////////////////////////////////
 // Notes / musings / pseudo code
 
 // what if they varied in length

@@ -1,22 +1,22 @@
 // Basic Data Structures
 
-// ////
-// ////
+///////////////////////////////////////////////
 // Use an Array to Store a Collection of Data
+///////////////////////////////////////////////
 
 let yourArray = ['heya', 4, null, true, false, NaN, undefined]
 
-// ////
-// ////
+///////////////////////////////////////////////
 // Access an Array's Contents Using Bracket Notation
+///////////////////////////////////////////////
 
 let myArray = ['a', 'b', 'c', 'd']
 myArray[1] = 'Mel'
 console.log(myArray)
 
-// ////
-// ////
+///////////////////////////////////////////////
 // Add Items to an Array with push() and unshift()
+///////////////////////////////////////////////
 
 function mixedNumbers(arr) {
   arr.unshift('I', 2, 'three') // unshift adds to beginning
@@ -26,9 +26,9 @@ function mixedNumbers(arr) {
 
 console.log(mixedNumbers(['IV', 5, 'six']))
 
-// ////
-// ////
+///////////////////////////////////////////////
 // Remove Items from an Array with pop() and shift()
+///////////////////////////////////////////////
 
 function popShift(arr) {
   let popped = arr.pop()
@@ -38,9 +38,9 @@ function popShift(arr) {
 
 console.log(popShift(['challenge', 'is', 'not', 'complete']))
 
-// ////
-// ////
+///////////////////////////////////////////////
 // Remove Item Usings splice()
+///////////////////////////////////////////////
 
 // 1 param where to start splicing
 // 2 para how many to splice
@@ -50,9 +50,9 @@ arr.splice(0, 1)
 arr.splice(3, 4)
 console.log(arr)
 
-// ////
-// ////
+///////////////////////////////////////////////
 // Add Items Using splice()
+///////////////////////////////////////////////
 
 // 3 params what to add to the array, in it's place, can be one or more items
 
@@ -72,9 +72,9 @@ console.log(
   ])
 )
 
-// ////
-// ////
+///////////////////////////////////////////////
 // Copy Array Items Using slice()
+///////////////////////////////////////////////
 
 //  2 parameters — the first is the index at which to begin extraction, and the second is the index at which to stop extraction (extraction will occur up to, but not including the element at this index)
 
@@ -86,9 +86,9 @@ console.log(
   forecast(['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms'])
 )
 
-// ////
-// ////
+///////////////////////////////////////////////
 // Copy an Array with the Spread Operator
+///////////////////////////////////////////////
 
 function copyMachine(arr, num) {
   let newArr = []
@@ -101,9 +101,9 @@ function copyMachine(arr, num) {
 
 console.log(copyMachine([true, false, true], 2))
 
-// ////
-// ////
+///////////////////////////////////////////////
 // Combine Arrays with the Spread Operator
+///////////////////////////////////////////////
 
 function spreadOut() {
   let fragment = ['to', 'code']
@@ -113,9 +113,9 @@ function spreadOut() {
 
 console.log(spreadOut())
 
-// ////
-// ////
+///////////////////////////////////////////////
 // Check For The Presence of an Element With indexOf()
+///////////////////////////////////////////////
 
 // return the index of the array,
 // or if the element doesn't exist returns -1
@@ -130,9 +130,9 @@ function quickCheck(arr, elem) {
 
 console.log(quickCheck(['squash', 'onions', 'shallots'], 'mushrooms'))
 
-// ////
-// ////
+///////////////////////////////////////////////
 // Iterate Through All an Array's Items Using For Loops
+///////////////////////////////////////////////
 
 function filteredArray(arr, elem) {
   let newArr = []
@@ -157,9 +157,9 @@ console.log(
   )
 )
 
-// ////
-// ////
+///////////////////////////////////////////////
 // Create complex multi-dimensional arrays
+///////////////////////////////////////////////
 
 // example
 let nestedArray = [
@@ -203,9 +203,9 @@ let myNestedArray = [
   ],
 ]
 
-// ////
-// ////
+///////////////////////////////////////////////
 // Add Key-Value Pairs to JavaScript Objects
+///////////////////////////////////////////////
 
 // At their most basic, objects are just collections of key-value pairs.
 // In other words, they are pieces of data (values) mapped to unique identifiers called properties (keys)
@@ -255,9 +255,9 @@ foods[favourite] = 27
 
 console.log(foods)
 
-// ////
-// ////
+///////////////////////////////////////////////
 // Modify an Object Nested Within an Object with dot notation
+///////////////////////////////////////////////
 
 let userActivity = {
   id: 23894201352,
@@ -272,9 +272,9 @@ userActivity.data.online = 45
 
 console.log(userActivity)
 
-// ////
-// ////
+///////////////////////////////////////////////
 // Access Property Names with Bracket Notation
+///////////////////////////////////////////////
 
 // let selectedFood = getCurrentFood(scannedItem)
 // let inventory = foods[selectedFood]
@@ -301,9 +301,9 @@ function checkInventory(scannedItem) {
 
 console.log(checkInventory('apples'))
 
-// ////
-// ////
+///////////////////////////////////////////////
 // Use the delete Keyword to Remove Object Properties
+///////////////////////////////////////////////
 
 let foods3 = {
   apples: 25,
@@ -320,9 +320,9 @@ delete foods3.strawberries
 
 console.log(foods3)
 
-// ////
-// ////
+///////////////////////////////////////////////
 // Check if an Object has a Property
+///////////////////////////////////////////////
 
 // 2 ways
 // hasOwnProperty() method
@@ -376,9 +376,9 @@ function isEveryoneHere2(obj) {
 
 console.log(isEveryoneHere2(users))
 
-// ////
-// ////
+///////////////////////////////////////////////
 // Iterate Through the Keys of an Object with a for...in Statement
+///////////////////////////////////////////////
 
 for (let user in users) {
   console.log(user)
@@ -414,9 +414,9 @@ const someUsers = {
 
 console.log(countOnline(someUsers))
 
-// ////
-// ////
+///////////////////////////////////////////////
 // Generate an Array of All Object Keys with Object.keys()
+///////////////////////////////////////////////
 
 const users2 = {
   Alan: {
@@ -443,9 +443,9 @@ function getArrayOfUsers(obj) {
 
 console.log(getArrayOfUsers(users2))
 
-// ////
-// ////
+///////////////////////////////////////////////
 // Modify an Array Stored in an Object
+///////////////////////////////////////////////
 
 let user = {
   name: 'Kenneth',

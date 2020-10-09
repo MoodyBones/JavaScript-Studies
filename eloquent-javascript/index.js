@@ -1,4 +1,4 @@
-// //////
+/////////////////////////////////////////////////
 // 2. Program Structure
 
 // ///
@@ -13,11 +13,11 @@ const loopTo7Function = () => {
     current = current + hashString
     hashArray.push(current)
   }
-  return hashArray.forEach(element => console.log(element))
+  return hashArray.forEach((element) => console.log(element))
 }
 loopTo7Function()
 
-// ////
+///////////////////////////////////////////////
 // FizzBuzz
 
 // print numbers from 1 to 100
@@ -25,7 +25,7 @@ loopTo7Function()
 // any number divisible by 5 print Buzz
 // any number divisible by both 3 & 5 print FizzBuzz
 
-// //// Workings...
+/////////////////////////////////////////////// Workings...
 
 // lets write the math functions
 
@@ -49,7 +49,7 @@ function divisionFunction(number) {
 
 // this loops through the array pushes each element out
 function getNumbers(array) {
-  array.forEach(number => divisionFunction(number))
+  array.forEach((number) => divisionFunction(number))
   return
 }
 
@@ -72,7 +72,7 @@ function FizzBuzzFunction() {
 // change loop function, so that it checks the numbers as it goes
 // if it's fizz or buzz or fizzbuzz check slice(-2) + 2
 
-// ////////////
+///////////////////////////////////////////////////////
 // FIZZBUZZ SOLUTION
 
 // no need for index or slice or seperating the function into 3
@@ -101,7 +101,7 @@ function FizzBuzz() {
       arr.push(i)
     }
   }
-  return arr.forEach(e => console.log(e))
+  return arr.forEach((e) => console.log(e))
 }
 
 FizzBuzz()
