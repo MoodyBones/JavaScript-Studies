@@ -381,22 +381,42 @@ console.log(bouncer([7, 'ate', '', false, 9]))
 //////////////////////////////////////////
 
 function getIndexToIns(arr, num) {
-  const result = [...arr.sort((a, b) => a - b)]
-  const resultArray = []
-  console.log(result)
-  result.reduce((acc, curr, i) => {
-    console.log(curr)
-    if (curr >= num) {
-      resultArray.push(i)
-    }
-  }, 0)
-  return resultArray
+  const result = arr
+    .sort((a, b) => a - b)
+    .findIndex((currentValue) => currentValue >= num)
+
+  // if given array is empy or the number is larger than the given array,
+  // then findIndex will return -1
+  return result === -1 ? arr.length : result
 }
 
 // console.log(getIndexToIns([40, 70, 60], 50))
 // console.log(getIndexToIns([10, 20, 30, 40, 50], 35))
 console.log(getIndexToIns([3, 10, 5], 3))
+console.log(getIndexToIns([], 1))
+console.log(getIndexToIns([2, 5, 10], 15))
 
 // go through array
 // check one at a time
 // if the curr is greater or equal too num return the index of the curr
+
+//////////////////////////////////////////
+// 17
+// Mutations
+// time taken: 1 hour!!! jeez
+// refactor:
+//////////////////////////////////////////
+
+function mutation(arr) {
+  let string2 = [...arr[1].toLowerCase()]
+  let string1 = [...arr[0].toLowerCase()]
+  let result = []
+  string2.map((letter) => {
+    return result.push(string1.includes(letter))
+  })
+  return result.includes(false) ? false : true
+}
+
+console.log(mutation(['Hello', 'Hey']))
+console.log(mutation(['hello', 'Hello']))
+console.log(mutation(['floor', 'for']))
