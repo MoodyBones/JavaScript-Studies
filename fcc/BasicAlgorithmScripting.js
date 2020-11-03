@@ -420,3 +420,63 @@ function mutation(arr) {
 console.log(mutation(['Hello', 'Hey']))
 console.log(mutation(['hello', 'Hello']))
 console.log(mutation(['floor', 'for']))
+
+//////////////////////////////////////////
+// 18
+// Chunky Monkey
+// time taken: 56 mins AUrghh
+// refactor:
+//////////////////////////////////////////
+
+// workings
+
+// function chunkArrayInGroups(arr, size) {
+//   const result = []
+
+//   let group = []
+
+//   if (size < 0) {
+//     return arr
+//   } else {
+
+//     for (let i = 0; i < arr.length; i++) {
+
+//       let sample = arr.slice(0, size)
+//       console.log(sample)
+
+//       if (group.length < size) {
+//         group.push(arr[i])
+
+//       }
+
+//       // arr.slice(i, size)
+//       result.push(group)
+//     }
+
+//     // arr.map(arg => result.push(arg))
+
+//     return result
+//   }
+// }
+
+// console.log(chunkArrayInGroups(['a', 'b', 'c', 'd'], 2))
+
+// if the array length is more than size create a new
+
+// make a loop
+
+function chunkArrayInGroups(arr, size) {
+  const testArr = [...arr]
+  const result = []
+
+  while (testArr.length) {
+    result.push(testArr.splice(0, size))
+  }
+  return result
+}
+
+console.log(chunkArrayInGroups(['a', 'b', 'c', 'd'], 2))
+
+//////////////////////////////////////////
+//  Section Completed 03.11.2020
+//////////////////////////////////////////
