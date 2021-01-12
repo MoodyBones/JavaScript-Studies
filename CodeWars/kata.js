@@ -151,3 +151,30 @@ function reverseEveryOtherWord(str) {
 
 console.log(reverseEveryOtherWord('Reverse this string, please!'))
 console.log(reverseEveryOtherWord('I really don’t like reversing strings!'))
+
+//////////////////////////////////////////
+// 4
+// Moving Zeros To The End
+// time taken: 12 mins
+// refactor:
+//////////////////////////////////////////
+
+var moveZeros = function (arr) {
+  const zeroes = []
+
+  return arr
+    .reduce((a, c) => {
+      if (c === 0) {
+        zeroes.push(c)
+      } else {
+        a.push(c)
+      }
+      return a
+    }, [])
+    .concat(zeroes)
+}
+
+// nice solution I found online
+var moveZeros = function (arr) {
+  return [...arr.filter((n) => n !== 0), ...arr.filter((n) => n === 0)]
+}
