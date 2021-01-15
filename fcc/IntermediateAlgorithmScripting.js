@@ -33,3 +33,36 @@ function sumAll(arr) {
 }
 
 sumAll([1, 4])
+
+//////////////////////////////////////////
+// 2
+// Algorithm Scripting: Diff Two Arrays
+// time taken: 20 mins
+// refactor: 1 min
+//////////////////////////////////////////
+
+//  first attempt
+
+// function diffArray(arr1, arr2) {
+
+//     return [...arr1, ...arr2].reduce((a, c) => {
+//       if (!arr1.includes(c) && arr2.includes(c)) {
+//         a.push(c)
+//       } else if (arr1.includes(c) && !arr2.includes(c)) {
+//         a.push(c)
+//       }
+//       return a
+//     }, [])
+// }
+
+// Refactor
+
+function diffArray(arr1, arr2) {
+  return [...arguments].reduce((a, c) => {
+    if (!arr1.includes(c) || !arr2.includes(c)) {
+      a.push(c)
+    }
+    return a
+  }, [])
+}
+console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5])) // [ 4 ]
