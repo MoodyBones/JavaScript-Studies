@@ -5,16 +5,16 @@
 // refactor:
 //////////////////////////////////////////
 
-const arr = (N) => {
-  const result = []
-  let test = N
-  let i = 0
-  while (test > i) {
-    test--
-    result.unshift(test)
-  }
-  return result
-}
+// const arr = (N) => {
+//   const result = []
+//   let test = N
+//   let i = 0
+//   while (test > i) {
+//     test--
+//     result.unshift(test)
+//   }
+//   return result
+// }
 
 // Refactor
 const arr = (N) => Array.from({ length: N }, (_, i) => i)
@@ -50,3 +50,34 @@ function drawACross(n) {
     return result.join('\n')
   }
 }
+
+//////////////////////////////////////////
+// 3
+// isReallyNaN
+// time taken:
+// refactor:
+//////////////////////////////////////////
+const isReallyNaN = (val) => {
+  return Number.isNaN(val)
+}
+
+console.log(isReallyNaN(37)) // false
+console.log(isReallyNaN('37')) // false
+console.log(isReallyNaN(NaN)) //  true
+console.log(isReallyNaN(undefined)) // false
+
+// **What the isNaN() function for?**
+
+// - To determine if a value is NaN or not.
+// - But take care because coercion inside the function has weird rules, so you may need to use `Number.isNaN()`
+
+// **Why use the isNaN function?**
+
+// - Unlike all other possible values in JavaScript, it is not possible to use the equality operators (== and ===) to compare a value against `[NaN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)`
+// - Both `NaN == NaN` and `NaN === NaN` evaluate to `false`.
+
+// **Wait what's being coerced?**
+
+// - The way it coerces **non-numeric** arguments can be confusing.
+// - Because if the value is **not** of type Number, the value is first coerced to a Number and the resulting value is **then** tested to determine whether it is NaN.
+// - For more info, I read about this at [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN) :)
