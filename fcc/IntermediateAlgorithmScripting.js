@@ -66,3 +66,38 @@ function diffArray(arr1, arr2) {
   }, [])
 }
 console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5])) // [ 4 ]
+
+//////////////////////////////////////////
+// 3
+// Seek and Destroy
+// time taken: 26mins
+// refactor: 3 mins
+//////////////////////////////////////////
+
+// function destroyer(arr) {
+//   const args = [...arguments]
+//   const destroyArgs = args.slice(1)
+
+//   return args[0].filter((x) => {
+//     // console.log(x)
+
+//     return !destroyArgs.every((e) => {
+//       // console.log(e)
+//       return e !== x
+//     })
+//   })
+// }
+
+// Refactor
+
+function destroyer(arr) {
+  const destroyArgs = [...arguments].slice(1)
+
+  return arguments[0].filter((val) => {
+    return !destroyArgs.includes(val)
+  })
+}
+
+// const destroyer = (arr, ...valsToRemove) => arr.filter(elem => !valsToRemove.includes(elem));
+
+console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3))
