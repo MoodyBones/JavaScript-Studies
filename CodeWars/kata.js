@@ -178,3 +178,43 @@ var moveZeros = function (arr) {
 var moveZeros = function (arr) {
   return [...arr.filter((n) => n !== 0), ...arr.filter((n) => n === 0)]
 }
+
+//////////////////////////////////////////
+// 5
+// Maximum Length Difference
+// time taken: 8
+// refactor:
+//////////////////////////////////////////
+
+// FAILED
+// I have no idea what this question is asking. Ask Raffa!!!
+
+function mxdiflg(a1, a2) {
+  const joinedArr = [...a1, ...a2]
+  if (a1.length === 0 || a2.lnegth === 0) {
+    return -1
+  }
+
+  return (
+    Math.max(...joinedArr.map((x) => x.length)) -
+    Math.min(...joinedArr.map((x) => x.length))
+  )
+
+  // return a2.reduce((a, c) => a + c).length - a2.reduce((a, c) => a + c).length
+}
+
+const s1 = [
+  'hoqq',
+  'bbllkw',
+  'oox',
+  'ejjuyyy',
+  'plmiis',
+  'xxxzgpsssa',
+  'xxwwkktt',
+  'znnnnfqknaz',
+  'qqquuhii',
+  'dvvvwz',
+]
+const s2 = ['cccooommaaqqoxii', 'gggqaffhhh', 'tttoowwwmmww']
+
+console.log(mxdiflg(s1, s2))
