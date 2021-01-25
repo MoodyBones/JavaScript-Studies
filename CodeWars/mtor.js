@@ -81,3 +81,32 @@ console.log(isReallyNaN(undefined)) // false
 // - The way it coerces **non-numeric** arguments can be confusing.
 // - Because if the value is **not** of type Number, the value is first coerced to a Number and the resulting value is **then** tested to determine whether it is NaN.
 // - For more info, I read about this at [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN) :)
+
+//////////////////////////////////////////
+// 4
+// Days in the year
+// time taken:
+// refactor:
+//////////////////////////////////////////
+
+function yearDays(year) {
+  const shortYear = 365
+  const longYear = 366
+
+  if ((year % 400 && !(year % 100)) || year % 4) {
+    return `${year} has ${shortYear} days`
+  } else {
+    return `${year} has ${longYear} days`
+  }
+}
+
+console.log(yearDays(0)) // '0 has 366 days'
+console.log(yearDays(-64)) // '-64 has 366 days'
+console.log(yearDays(2016)) // '2016 has 366 days'
+console.log(yearDays(1974)) // '1974 has 365 days'
+console.log(yearDays(-10)) // '-10 has 365 days'
+console.log(yearDays(666)) // '666 has 365 days'
+console.log(yearDays(1857)) // 1857 has 365 days'
+
+console.log(yearDays(1000)) // 1000 has 365 days'
+console.log(yearDays(1600)) // 1600 has 366 days'
