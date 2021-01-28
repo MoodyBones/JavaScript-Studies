@@ -191,7 +191,7 @@ var moveZeros = function (arr) {
 
 function mxdiflg(a1, a2) {
   const joinedArr = [...a1, ...a2]
-  if (a1.length === 0 || a2.lnegth === 0) {
+  if (a1.length === 0 || a2.length === 0) {
     return -1
   }
 
@@ -218,3 +218,41 @@ const s1 = [
 const s2 = ['cccooommaaqqoxii', 'gggqaffhhh', 'tttoowwwmmww']
 
 console.log(mxdiflg(s1, s2))
+
+//////////////////////////////////////////
+// 6
+// Difference of Volumes of Cuboids
+// time taken: 10 mins
+// refactor: 8 mins
+//////////////////////////////////////////
+
+// first attempt
+// function findDifference(a, b) {
+//   const reducer = (acc, curr) => acc * curr
+//   return a.reduce(reducer) > b.reduce(reducer)
+//     ? a.reduce(reducer) - b.reduce(reducer)
+//     : b.reduce(reducer) - a.reduce(reducer)
+// }
+
+// refactor
+
+// function findDifference(a, b) {
+//   const multiply = (acc, curr) => acc * curr
+//   const volumeA = a.reduce(multiply)
+//   const volumeB = b.reduce(multiply)
+//   return volumeA > volumeB
+//     ? volumeA - volumeB
+//     : volumeB - volumeA
+// }
+
+// ///////////////////////////////////
+// A better solution use Math.abs()
+function volume(arr) {
+  return arr.reduce((acc, curr) => acc * curr)
+}
+
+function findDifference(a, b) {
+  return Math.abs(volume(a) - volume(b))
+}
+
+console.log(findDifference([3, 2, 5], [1, 4, 4]))
