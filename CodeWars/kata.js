@@ -256,3 +256,25 @@ function findDifference(a, b) {
 }
 
 console.log(findDifference([3, 2, 5], [1, 4, 4]))
+
+//////////////////////////////////////////
+// 6
+// Grasshopper - Grade book
+// time taken: 5 mins
+// refactor:
+//////////////////////////////////////////
+
+function getGrade(s1, s2, s3) {
+  const mean = [...arguments].reduce((p, c) => p + c) / arguments.length
+  return mean >= 90
+    ? 'A'
+    : mean >= 80
+    ? 'B'
+    : mean >= 70
+    ? 'C'
+    : mean >= 60
+    ? 'D'
+    : 'F'
+}
+
+console.log(getGrade(95, 90, 93))
