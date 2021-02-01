@@ -110,3 +110,36 @@ console.log(yearDays(1857)) // 1857 has 365 days'
 
 console.log(yearDays(1000)) // 1000 has 365 days'
 console.log(yearDays(1600)) // 1600 has 366 days'
+
+//////////////////////////////////////////
+// 5
+// Days in the year
+// time taken: 7 mins
+// refactor:
+//////////////////////////////////////////
+
+// function getRandom(min, max) {
+//   return Math.floor(Math.random() * (max - min) + min)
+// }
+
+// const generate = (length) => {
+//   let result = []
+//   while (result.length < length) {
+//     result.push(getRandom(0, 2))
+//   }
+
+//   return result
+// }
+
+// const arr = (N) => Array.from({ length: N }, (_, i) => i)
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max))
+}
+
+const generate = (length) => {
+  return Array.from({ length: length }, (char) => getRandomInt(2)).join('')
+}
+
+console.log(generate(16))
+// console.log(arr(16))
