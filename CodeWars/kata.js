@@ -281,8 +281,9 @@ console.log(getGrade(95, 90, 93))
 
 //////////////////////////////////////////
 // 7
+// Women Who Code Hack Night Kata
 // Loose Change
-// time taken: 20 mins
+// time taken: 30 mins
 // refactor:
 //////////////////////////////////////////
 
@@ -351,3 +352,32 @@ console.log(looseChange(-3))
 
 //   return wallet
 // }
+
+//////////////////////////////////////////
+// 8
+// Number to digit tiers
+// time taken: 30 mins
+// refactor:
+//////////////////////////////////////////
+
+function createArrayOfTiers(num) {
+  const numSplit = num.toString()
+  return numSplit.split('').reduce((result, _, index) => {
+    result.push(numSplit.slice(0, index + 1))
+    return result
+  }, [])
+}
+
+console.log(createArrayOfTiers(420))
+
+// notes
+// convert num to string
+// initial array numSplit
+// reduce - acc is result array
+// push numSplit sliced
+//
+// numSplit.slice(0, index+1)
+// understanding the loop
+// begin at 0 stop at 1
+// begin at 0 stop at 2
+// begin at 0 strop at 3
