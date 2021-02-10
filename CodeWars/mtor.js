@@ -113,7 +113,7 @@ console.log(yearDays(1600)) // 1600 has 366 days'
 
 //////////////////////////////////////////
 // 5
-// Days in the year
+// Genetic Algorithm Series - #1 Generate
 // time taken: 7 mins
 // refactor:
 //////////////////////////////////////////
@@ -143,3 +143,28 @@ const generate = (length) => {
 
 console.log(generate(16))
 // console.log(arr(16))
+
+//////////////////////////////////////////
+// 6
+// Genetic Algorithm Series - #2 Mutation
+// time taken:
+// refactor:
+//////////////////////////////////////////
+
+const zeroOrOne = (currentValue) =>
+  currentValue === 0 ? (currentValue = 1) : (currentValue = 0)
+
+const getP = () => Math.round(Math.random())
+
+const mutate = (chromosome, p = getP()) => {
+  return chromosome
+    .split('')
+    .map((x) => (p === 1 ? (x = 1) : (x = 0)))
+    .join('')
+}
+
+const zero = Array(10).join('0')
+const one = Array(10).join('1')
+
+console.log(mutate(zero, 1))
+console.log(mutate(one))
