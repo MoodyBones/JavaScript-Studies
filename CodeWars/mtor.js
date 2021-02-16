@@ -168,3 +168,29 @@ const one = Array(10).join('1')
 
 console.log(mutate(zero, 1))
 console.log(mutate(one))
+
+//////////////////////////////////////////
+// 7
+//
+// time taken: 1 hour
+// refactor: included above
+//////////////////////////////////////////
+
+const solution = (mtrx) => {
+  return mtrx.some((row) => {
+    let target = -1
+    let arrow = row.indexOf('>')
+    if (arrow >= 0) {
+      target = row.indexOf('x')
+    }
+
+    return arrow < target
+  })
+}
+
+// `some()` is good for performance, you can provide a boolean function for testing and it tests every element for a truthy value.
+// It stops executing when it finds a truthy value. it returns a boolean.
+//
+// `indexOf()` returns the first index or -1
+//
+// if statement means it only checks the row for a target if it's already found the arrow
