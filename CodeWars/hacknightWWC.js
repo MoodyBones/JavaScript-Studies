@@ -1,6 +1,5 @@
 //////////////////////////////////////////
 // Women Who Code Hack Night Kata
-// 7
 // Loose Change
 // time taken: 20 mins
 // refactor:
@@ -71,3 +70,41 @@ console.log(looseChange(-3))
 
 //   return wallet
 // }
+
+//////////////////////////////////////////
+// Women Who Code Hack Night Kata
+//
+// time taken: 20 mins
+// refactor:
+//////////////////////////////////////////
+
+const n = parseInt(readline()) // the number of temperatures to analyse
+var inputs = readline().split(' ')
+for (let i = 0; i < n; i++) {
+  const t = parseInt(inputs[i]) // a temperature expressed as an integer ranging from -273 to 5526
+}
+
+// Write an answer using console.log()
+// To debug: console.error('Debug messages...');
+
+const closestToZero = (temps) => {
+  const middle = 0
+  if (temps.length === 1) return middle // no temp
+  const sortedTemps = [...temps, middle].sort((a, b) => a - b)
+
+  if (sortedTemps[0] === middle) {
+    return sortedTemps[1]
+  } else if (sortedTemps.indexOf(middle) === sortedTemps.length - 1) {
+    // only negatives or positives
+    return sortedTemps[sortedTemps.length - 2]
+  } else if (sortedTemps.indexOf(middle) > 0) {
+    // get negative & positive and compare
+    const negative = sortedTemps.indexOf(middle) - 1
+    const positive = sortedTemps.indexOf(middle) + 1
+    return sortedTemps[negative] > sortedTemps[positive]
+      ? sortedTemps[negative]
+      : sortedTemps[positive]
+  }
+}
+
+console.log(closestToZero(inputs))
