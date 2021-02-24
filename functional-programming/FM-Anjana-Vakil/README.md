@@ -1,4 +1,24 @@
-# **Functional JavaScript First Steps**
+# Course: [Functional JavaScript First Steps on Frontend Masters](https://frontendmasters.com/courses/functional-first-steps/)
+
+### Teacher: [Anjana Vakil](https://twitter.com/AnjanaVakil)
+
+### Quick Intro:
+
+- Core Functional Programming ideas
+- We will use JavaScript
+- Anjana Vakil,
+  - no CS degree, instead studied philosophy & an english teacher (she's an amazing teacher btw),
+  - when started working in software, different programming paradigms, different styles or mindsets for coding were super interesting (perhaps coz of philosophy background)
+  - got into functional programming
+  - wants to share her learnings
+  - share an overview of functional programming
+
+## What is Observable?
+
+- It is a platform for working with code and data and visualisations, interactively live in the browser!
+- it's reactive, as you enter new code, you get the rest of your programs updated instantly
+- uses javascript and web technologies
+- 'Notebooks'
 
 _A fun(ctional) programming introduction by [@AnjanaVakil](https://twitter.com/AnjanaVakil) for [FrontendMasters](https://frontendmasters.com/teachers/anjana-vakil/)_
 
@@ -81,7 +101,7 @@ Object-oriented
 - send/receive messages
 - enscapulation, they can change those value overtime(state),
 - they keep to themselves, but can talk to another by passing messaging,
-- e.g. calling methods on other oject in the program
+- e.g. calling methods on other object in the program
 - message passing lifestyle made up by little cellular objects (encapsulated units), and they behave by interacting with each other through messages
 - [check out Anjana talk on YouTube](https://youtu.be/TbP2B1ijWr8)
 
@@ -102,7 +122,7 @@ Functional
 
 - when she started learning she joined '[the recurse center](https://www.recurse.com/)'
 - An amazing Article by [Mary Rose Cook "An Introduction to functional programming"](https://codewords.recurse.com/issues/one/an-introduction-to-functional-programming)
-- Mary points out while there are all these scary terminolgies and mathematical notations, it all you need to worry about is a single idea..
+- Mary points out while there are all these scary terminologies and mathematical notations, it all you need to worry about is a single idea..
 
 # Pure functions, what are they?
 
@@ -111,7 +131,7 @@ Functional
 - only takes its input in and that is the only thing, the only data that it looks at about the world, and all that it does is return its output.
 - no side effects
 
-### Thining of only input in, only output out has some consequences
+### Thinking of only input in, only output out has some consequences
 
 - a pure function in functional programming as kind of like a black box where you have some input like this green circle that comes in.
 - And once the function has done its computation, you get some output like this blue purple triangle.
