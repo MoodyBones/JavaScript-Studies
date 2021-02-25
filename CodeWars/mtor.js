@@ -194,3 +194,40 @@ const solution = (mtrx) => {
 // `indexOf()` returns the first index or -1
 //
 // if statement means it only checks the row for a target if it's already found the arrow
+
+//////////////////////////////////////////
+// 8
+// Collatz Conjecture Length
+// time taken:
+// refactor:
+//////////////////////////////////////////
+
+const evenOrOdd = (n) => (n % 2 === 0 ? true : false)
+const evenMath = (n) => n / 2
+const oddMath = (n) => n * 3 + 1
+function collatz(n, arr = []) {
+  return Array.from([n]).reduce((acc, curr) => {
+    acc.push(curr)
+    if (curr === 1) {
+      return acc
+    } else {
+      return evenOrOdd(curr)
+        ? collatz(evenMath(curr), acc)
+        : collatz(oddMath(curr), acc)
+    }
+  }, arr).length
+}
+
+// const evenOrOdd = (n) => n % 2 === 0 ? true : false
+// const evenMath = (n) => n / 2
+// const oddMath = (n) => (n * 3) + 1
+// function collatz(n, arr = []) {
+//   return Array.from([n]).reduce((acc, curr) => {
+//      acc.push(curr)
+//      if (curr === 1) {
+//         return acc
+//      } else {
+//       return evenOrOdd(curr) ? collatz(evenMath(curr), acc) : collatz(oddMath(curr), acc)
+//      }
+//    }, arr).length
+// }
