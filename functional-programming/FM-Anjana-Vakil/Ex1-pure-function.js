@@ -11,7 +11,7 @@ function getDate() {
   return new Date().toDateString()
 }
 
-// impure
+// not pure
 // no inputs
 // side effect - calling out to Date()
 // not deteminstic the output will differ everytime
@@ -21,6 +21,7 @@ function getWorkshopDate() {
 }
 
 // pure
+// deterministic it always returns the same value because we are passing the same arg into Date()
 // A function is pure if its output depends on nothing but its inputs, and it always returns the same output if called with the same inputs (in this case, no inputs).
 
 function toHex(n) {
@@ -40,6 +41,7 @@ function rgbToHex(R, G, B) {
 
 // pure
 // i thought that reaching out to for toHex() was problematic, but it's not changing it, so i guess it's ok
+// because we know that toHex() is deterministice & pure and we are not introducing any other impurities then we know this is a pure function
 
 function setColor(R, G, B) {
   const hex = rgbToHex(R, G, B)
@@ -47,9 +49,10 @@ function setColor(R, G, B) {
   colorMe.setAttribute('style', 'color: ' + hex)
 }
 
-// impure
+// not pure
+// it's not returning anything
 // colorMe should have been passed in and then a new versions returned
-// side effect: changing the properties of an HTML element on the page
+// side effect: changing the properties of an HTML element on the page (it's accessing the DOM )
 
 async function readJsonFile(filename) {
   const file = await fetch(
@@ -63,7 +66,8 @@ async function readJsonFile(filename) {
 
 // wrong
 // inpure
-
+// it's fetching data from the outside world (not determinstic)
+// stuff in the outside world is always changing so if that file changes or gets deleted we will get a different result
 // A function is not pure if its output depends on the state of the world (in this case, the contents of web-hosted file), or if calling the function at different times with the same inputs can give different outputs.
 
 function writeJsonString(object) {
@@ -72,13 +76,18 @@ function writeJsonString(object) {
 
 // pure
 // all inputs & outputs look fine and no side effects
+//
+// note it could be not pure
+// becuase objects are mutable, so they can change
+// so someone could change the data in the object and this function would become impure
+// **in functional programming we should always work with immutable data!!**
 
 function exclusiveOr(A, B) {
   return (A || B) && !(A && B)
 }
 
 // Pure
-// but i have no idea whats going on here, i think i have been studying too long
+// logical operators in javascript will always give the same result
 
 function computeTruthTable(operator) {
   const truthValues = [true, false]
@@ -97,6 +106,7 @@ function computeTruthTable(operator) {
 // returns table
 // operator seems to be function which confused me a bit
 // but whatever you get when you call operator(true, false) it is saved in value
+// this is not a function style of writing code (it's more imperative). we look at rewriting this
 
 function showTruthTable(operator) {
   console.table(computeTruthTable(operator))
