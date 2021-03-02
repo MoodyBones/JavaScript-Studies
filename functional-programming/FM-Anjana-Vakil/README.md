@@ -380,3 +380,131 @@ thesis2
 - we want to take the old thing and make a new slightly different version which we then return in it's place
 
 ### Arity means the number of arguments the function takes in
+
+# Recursion
+
+- it helps us avoid a more imperative style of looping
+
+Iterating and Recursion:
+
+- are sorts of mini paradigms that go together with imperative and functional programming
+- get the computer to do the same operation, lots of different times
+
+## Iteration
+
+- imperative
+- looping: repetition in terms of loops. for or while
+- stateful: the values changing overtime
+- isn't functional
+
+```js
+function sum(numbers) {
+  let total = 0
+  for (i = 0; i < numbers.length; i++) {
+    total += numbers[i]
+  }
+  return total
+}
+
+sum([0, 1, 2, 3, 4]) // 10
+```
+
+## Recursion
+
+- functional
+- self-referential: function calls itself from within itself. which is how execute the same operation mutliple times
+- stateless: we only care about the input & output
+- it makes a call to itself
+
+```js
+function sum(numbers) {
+  if (numbers.length === 1) {
+    // base case
+    return numbers[0]
+  } else {
+    // recursive case
+    return numbers[0] + sum(numbers.slice(1))
+  }
+}
+sum([0, 1, 2, 3, 4]) // 10
+```
+
+### Must haves for recursive functions
+
+- function must have 2 parts: recursive case & base case
+- base case stops us from getting stuck in an infinite loop
+- you can have more than one base case. but you must have at least one all you stay in the resursion forever
+- we should think about what are the performance implications for recursive functions vs iterators
+
+**Studying basic math can help you understand recursive functions better**
+
+Strongly typed data works really well with functional programming.
+
+```js
+function iterativeFibonacci(n) {
+  if (n === 0) return 0
+  if (n === 1) return 1
+
+  let previous = 0
+  let current = 1
+  for (let i = n; i > 1; i--) {
+    let next = previous + current
+    previous = current
+    current = next
+  }
+  return current
+}
+
+function recursiveFibonacci(n) {
+  if (n === 0) return 0 // set first two numbers (2 part base case)
+  if (n === 1) return 1 // set first two numbers (2 part base case)
+  return recursiveFibonacci(n - 2) + recursiveFibonacci(n - 1)
+  // recursive case. we get the number 2 before and the number 1 before so we can add them together and get the current fibonacci number.
+  // this is more similar to what we see in maths.
+}
+```
+
+## Performance
+
+- the imperative fibonacci appears to perform much faster than the recursive fibonacci
+
+why is recursive function slower?
+
+- it is making the same call with the same arguments repeatedly
+- it's using the callstack
+
+There are 2 problems recursive functions
+
+- doing the same work multiple times. one solution is called Memoisation. it's a way of caching the functions
+- too much recursion/call stack exeeded/ stack overflow
+
+## Anjana explains the call stack
+
+Every time I call a function in JavaScrip, I have to add a new frame for that exact call of the function to what's called the functions to the `call stack`.
+
+- **The call stack is on my computer and my computer has a finite amount of memory.**
+- We're trying to do a operation recursion which could theoretically go on forever.
+- There's nothing conceptually or mathematically preventing that recursion from going, going, going,...
+- However, we're doing that **potentially infinite operation in a finite resource environment.**
+
+- If we keep adding frames to the stack, eventually we have a really, really deep recursion because I've got a big input number or I've got a large array I'm operating on or something like that.
+- I'm gonna run out of room and so I'm gonna get this error call stack size exceeded or too much recursion or whatever my browser tells me.
+
+### The solution
+
+- Or a solution to that is something called tail recursion and tail call optimization.
+
+- TLDR is that tail call optimization is a feature of some runtimes (like my JavaScript engine), where it can perform an optimization on my recursive code, if, I write that recursive code in a particular way.
+
+Instead of writing a regular recursive function, I write something that's called a tail recursive function.
+[Check out the Natalia Margolis and Anjanas musical tech talk about it.](https://www.youtube.com/watch?v=-PX0BV9hGZY&ab_channel=Confreaks)
+
+### Proper tail calls
+
+- Javascript introduced in ES6 or ES2015 `proper tail calls`
+- allows you to in certain engines, like Safari, for example,
+- you can take advantage of this tail call optimization thanks to the language feature proper tail calls that was added in ES6.
+
+Read up on how to get around functional performance issues. In functional languages you see that kind of thing built into the language so that you don't have to worry about it. **Because JS is multi-purpose language we have to think a bit more about performance.** Infact JS had to change to make those workarounds possible.
+
+It tool the functional programming community a really long to time to solve these kinds of issues. To work out how to combine recursive & pure function way of solving problems (functional mindset), with the constraints of working with a computer architecturethat is limited with its resources.

@@ -51,7 +51,7 @@ Examples of side effects:
 
 # Extra Reference Material
 
-- T[he Recurse Center](https://www.recurse.com/)
+- [The Recurse Center](https://www.recurse.com/)
   - Anjana joined the Recurse Center when she first started learning to code and met Mary & her read her amazing article [Mary Rose Cook "An Introduction to functional programming"](https://codewords.recurse.com/issues/one/an-introduction-to-functional-programming)
   - Mary points out while there are all these scary terminologies and mathematical notations, it all you need to worry about is a single idea.. **Pure Functions-**
 - Some functional programming heroes to look up: Alonzo Church and Alan Turing
