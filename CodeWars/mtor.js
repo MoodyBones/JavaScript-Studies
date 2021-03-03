@@ -202,32 +202,66 @@ const solution = (mtrx) => {
 // refactor:
 //////////////////////////////////////////
 
-const evenOrOdd = (n) => (n % 2 === 0 ? true : false)
-const evenMath = (n) => n / 2
-const oddMath = (n) => n * 3 + 1
-function collatz(n, arr = []) {
-  return Array.from([n]).reduce((acc, curr) => {
-    acc.push(curr)
-    if (curr === 1) {
-      return acc
-    } else {
-      return evenOrOdd(curr)
-        ? collatz(evenMath(curr), acc)
-        : collatz(oddMath(curr), acc)
-    }
-  }, arr).length
-}
-
-// const evenOrOdd = (n) => n % 2 === 0 ? true : false
+// not working
+// const evenOrOdd = (n) => (n % 2 === 0 ? true : false)
 // const evenMath = (n) => n / 2
-// const oddMath = (n) => (n * 3) + 1
+// const oddMath = (n) => n * 3 + 1
 // function collatz(n, arr = []) {
 //   return Array.from([n]).reduce((acc, curr) => {
-//      acc.push(curr)
-//      if (curr === 1) {
-//         return acc
-//      } else {
-//       return evenOrOdd(curr) ? collatz(evenMath(curr), acc) : collatz(oddMath(curr), acc)
-//      }
-//    }, arr).length
+//     acc.push(curr)
+//     if (curr === 1) {
+//       return acc
+//     } else {
+//       return evenOrOdd(curr)
+//         ? collatz(evenMath(curr), acc)
+//         : collatz(oddMath(curr), acc)
+//     }
+//   }, arr).length
 // }
+
+// refactor
+const isEven = (n) => n % 2 === 0
+const evenMath = (n) => n / 2
+const oddMath = (n) => n * 3 + 1
+function collatz(n) {
+  let arr = [n]
+  while (n !== 1) {
+    n = isEven(n) ? evenMath(n) : oddMath(n)
+    arr.push(n)
+  }
+  return arr.length
+}
+
+//////////////////////////////////////////
+// 9
+// Enumerable Magic #5- True for Just One?
+// time taken: 5 mins
+// refactor:
+//////////////////////////////////////////
+
+// function one(arr, fun) {
+//   return arr.filter((value) => fun(value)).length === 1 ? true : false
+// }
+
+// refactor
+const one = (arr, fun) => arr.filter(fun).length === 1
+
+// filter method creates a new array with all items that pass the test.
+// passed in fun() as the test
+// return true if length is 1
+
+console.log(
+  one([1, 2, 3, 4, 5], function (item) {
+    return item < 2
+  })
+) //  true
+console.log(
+  one([1, 2, 3, 4, 5], function (item) {
+    return item % 2
+  })
+) //  false,  'more than 1 item are odd'
+console.log(
+  one([1, 2, 3, 4, 5], function (item) {
+    return item > 5
+  })
+) //  false,  'none item is greater than 5'
