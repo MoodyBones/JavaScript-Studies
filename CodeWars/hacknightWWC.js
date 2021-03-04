@@ -108,3 +108,16 @@ const closestToZero = (temps) => {
 }
 
 console.log(closestToZero(inputs))
+
+//////////////////////////////////////////
+// Women Who Code Hack Night Kata
+// Bit Counting
+// time taken: 12 mins
+// refactor: incl. above
+//////////////////////////////////////////
+
+const countBits = (n) =>
+  n
+    .toString(2)
+    .split('')
+    .filter((e) => e === '1').length
