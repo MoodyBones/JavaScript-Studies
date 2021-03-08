@@ -265,3 +265,14 @@ console.log(
     return item > 5
   })
 ) //  false,  'none item is greater than 5'
+
+//////////////////////////////////////////
+// 10
+// Enumerable Magic #5- True for Just One?
+// Solution from Dennis in chat :)
+//////////////////////////////////////////
+
+const evenChars = (string) =>
+  string.length < 2 || string.length > 100
+    ? `invalid string`
+    : [...string].filter((_, index) => index % 2)
