@@ -23,9 +23,9 @@
         fetchBtn.addEventListener('click', async () => {
           // we must call it .netlify because we don't want any name clashes with other apis
           // then we parse the response so that we can use it
-          const response = await fetch(
-            '/.netlify/functions/hello-world.js'
-          ).then((response) => response.json())
+          const response = await fetch('/.netlify/functions/hello-world').then(
+            (response) => response.json()
+          )
 
           // update responseText to display the response
           responseText.innerText = response
